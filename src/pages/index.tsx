@@ -3,6 +3,7 @@ import { CountDown } from '../components/CountDown/CountDown';
 import { ExperienceBar } from "../components/ExperienceBar/ExperienceBar";
 import { Profile } from '../components/Perfil/Perfil';
 import { ChallengeBox } from '../components/ChallengeBox/ChallengeBox';
+import { CountDownProvider } from '../contexts/CountDownContext';
 
 import Head from 'next/head'; 
 
@@ -17,16 +18,18 @@ export default function Home() {
         <title>Início | move.it</title>
       </Head>
 
-      <section>
-        <div>
-          <Profile />
-          <CompletedChallenges />
-          <CountDown />
-        </div>
-        <div>
-          <ChallengeBox />
-        </div>
-      </section>
+      <CountDownProvider>
+        <section>
+          <div>
+            <Profile />
+            <CompletedChallenges />
+            <CountDown />
+          </div>
+          <div>
+            <ChallengeBox />
+          </div>
+        </section>
+      </CountDownProvider>
     </div>
   )
 }
